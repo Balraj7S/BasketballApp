@@ -36,7 +36,7 @@
             // lblwelcome
             // 
             lblwelcome.AutoSize = true;
-            lblwelcome.Location = new Point(349, 34);
+            lblwelcome.Location = new Point(347, 38);
             lblwelcome.Name = "lblwelcome";
             lblwelcome.Size = new Size(57, 15);
             lblwelcome.TabIndex = 0;
@@ -50,6 +50,7 @@
             bntAddPlayer.TabIndex = 1;
             bntAddPlayer.Text = "Add Player";
             bntAddPlayer.UseVisualStyleBackColor = true;
+            bntAddPlayer.Click += bntAddPlayer_Click;
             // 
             // btnQuit
             // 
@@ -70,6 +71,7 @@
             Controls.Add(lblwelcome);
             Name = "HomeForm";
             Text = "HomeForm";
+            Load += HomeForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

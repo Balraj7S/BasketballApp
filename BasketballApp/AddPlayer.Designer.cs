@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
             lblTeamName = new Label();
             txbTeamName = new TextBox();
             lblPlayerName = new Label();
@@ -38,17 +37,6 @@
             btnBack = new Button();
             btnNext = new Button();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Arial Narrow", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(278, 30);
-            label1.Name = "label1";
-            label1.Size = new Size(115, 31);
-            label1.TabIndex = 0;
-            label1.Text = "Basketball";
-            label1.Click += label1_Click;
             // 
             // lblTeamName
             // 
@@ -66,7 +54,7 @@
             txbTeamName.Name = "txbTeamName";
             txbTeamName.Size = new Size(133, 23);
             txbTeamName.TabIndex = 3;
-            txbTeamName.TextChanged += textBox1_TextChanged;
+      
             // 
             // lblPlayerName
             // 
@@ -77,7 +65,7 @@
             lblPlayerName.Size = new Size(96, 20);
             lblPlayerName.TabIndex = 4;
             lblPlayerName.Text = "Player Name:";
-            lblPlayerName.Click += label2_Click;
+        
             // 
             // txbPlayerName
             // 
@@ -120,6 +108,7 @@
             btnNext.TabIndex = 9;
             btnNext.Text = "Next";
             btnNext.UseVisualStyleBackColor = true;
+            btnNext.Click += btnNext_Click;
             // 
             // AddPlayer
             // 
@@ -134,17 +123,13 @@
             Controls.Add(lblPlayerName);
             Controls.Add(txbTeamName);
             Controls.Add(lblTeamName);
-            Controls.Add(label1);
             Name = "AddPlayer";
             Text = "Team Form";
-            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Label label1;
         private Label lblTeamName;
         private TextBox txbTeamName;
         private Label lblPlayerName;

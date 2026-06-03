@@ -37,7 +37,8 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Arial Narrow", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(336, 9);
+            label1.Location = new Point(336, 10);
+            label1.Margin = new Padding(0, 0, 0, 0);
             label1.Name = "label1";
             label1.Size = new Size(115, 31);
             label1.TabIndex = 2;
@@ -45,16 +46,18 @@
             // 
             // rtbPlayerDetails
             // 
-            rtbPlayerDetails.Location = new Point(12, 98);
+            rtbPlayerDetails.Location = new Point(14, 100);
+            rtbPlayerDetails.Margin = new Padding(0, 5, 0, 5);
             rtbPlayerDetails.Name = "rtbPlayerDetails";
-            rtbPlayerDetails.Size = new Size(773, 318);
+            rtbPlayerDetails.Size = new Size(774, 319);
             rtbPlayerDetails.TabIndex = 3;
             rtbPlayerDetails.Text = "";
             // 
             // lblPlayerDetails
             // 
             lblPlayerDetails.AutoSize = true;
-            lblPlayerDetails.Location = new Point(18, 67);
+            lblPlayerDetails.Location = new Point(21, 65);
+            lblPlayerDetails.Margin = new Padding(0, 0, 0, 0);
             lblPlayerDetails.Name = "lblPlayerDetails";
             lblPlayerDetails.Size = new Size(77, 15);
             lblPlayerDetails.TabIndex = 4;
@@ -64,10 +67,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(840, 450);
             Controls.Add(lblPlayerDetails);
             Controls.Add(rtbPlayerDetails);
             Controls.Add(label1);
+            Font = new Font("Segoe UI", 9F);
+            Margin = new Padding(0, 5, 0, 5);
             Name = "Finish";
             Text = "Finish";
             ResumeLayout(false);
