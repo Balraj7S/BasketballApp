@@ -30,8 +30,9 @@ namespace BasketballApp
         {
             AddPlayer addPlayerForm = new AddPlayer();
             addPlayerForm.Show();
-            this.Hide();
+            this.Hide();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 
         }
     }
 }
+                                                                                                          

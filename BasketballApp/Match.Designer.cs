@@ -28,23 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txbMatchDate = new TextBox();
             lblTeamName = new Label();
-            txbAwayTeam = new TextBox();
-            label1 = new Label();
-            txbHomeTeam = new TextBox();
+            lblAwayTeam = new Label();
             btnNext = new Button();
             btnBack = new Button();
             label3 = new Label();
-            label2 = new Label();
+            lblhomeTeam = new Label();
+            dtpMatchDate = new DateTimePicker();
+            cmbHomeTeam = new ComboBox();
+            cmbAwayteam = new ComboBox();
             SuspendLayout();
-            // 
-            // txbMatchDate
-            // 
-            txbMatchDate.Location = new Point(148, 135);
-            txbMatchDate.Name = "txbMatchDate";
-            txbMatchDate.Size = new Size(133, 23);
-            txbMatchDate.TabIndex = 5;
             // 
             // lblTeamName
             // 
@@ -56,30 +49,15 @@
             lblTeamName.TabIndex = 4;
             lblTeamName.Text = "Match Date:";
             // 
-            // txbAwayTeam
+            // lblAwayTeam
             // 
-            txbAwayTeam.Location = new Point(148, 193);
-            txbAwayTeam.Name = "txbAwayTeam";
-            txbAwayTeam.Size = new Size(133, 23);
-            txbAwayTeam.TabIndex = 7;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(49, 196);
-            label1.Name = "label1";
-            label1.Size = new Size(88, 20);
-            label1.TabIndex = 6;
-            label1.Text = "Away Team:";
-            // 
-            // txbHomeTeam
-            // 
-            txbHomeTeam.Location = new Point(148, 164);
-            txbHomeTeam.Name = "txbHomeTeam";
-            txbHomeTeam.Size = new Size(133, 23);
-            txbHomeTeam.TabIndex = 9;
-            txbHomeTeam.TextChanged += textBox2_TextChanged;
+            lblAwayTeam.AutoSize = true;
+            lblAwayTeam.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblAwayTeam.Location = new Point(49, 196);
+            lblAwayTeam.Name = "lblAwayTeam";
+            lblAwayTeam.Size = new Size(88, 20);
+            lblAwayTeam.TabIndex = 6;
+            lblAwayTeam.Text = "Away Team:";
             // 
             // btnNext
             // 
@@ -89,6 +67,7 @@
             btnNext.TabIndex = 11;
             btnNext.Text = "Next";
             btnNext.UseVisualStyleBackColor = true;
+            btnNext.Click += btnNext_Click;
             // 
             // btnBack
             // 
@@ -98,6 +77,7 @@
             btnBack.TabIndex = 10;
             btnBack.Text = "Back";
             btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
             // 
             // label3
             // 
@@ -109,47 +89,70 @@
             label3.TabIndex = 12;
             label3.Text = "Basketball";
             // 
-            // label2
+            // lblhomeTeam
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(44, 167);
-            label2.Name = "label2";
-            label2.Size = new Size(93, 20);
-            label2.TabIndex = 13;
-            label2.Text = "Home Team:";
+            lblhomeTeam.AutoSize = true;
+            lblhomeTeam.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblhomeTeam.Location = new Point(44, 167);
+            lblhomeTeam.Name = "lblhomeTeam";
+            lblhomeTeam.Size = new Size(93, 20);
+            lblhomeTeam.TabIndex = 13;
+            lblhomeTeam.Text = "Home Team:";
+            // 
+            // dtpMatchDate
+            // 
+            dtpMatchDate.Location = new Point(148, 136);
+            dtpMatchDate.Name = "dtpMatchDate";
+            dtpMatchDate.Size = new Size(196, 23);
+            dtpMatchDate.TabIndex = 14;
+            // 
+            // cmbHomeTeam
+            // 
+            cmbHomeTeam.FormattingEnabled = true;
+            cmbHomeTeam.Location = new Point(148, 164);
+            cmbHomeTeam.Name = "cmbHomeTeam";
+            cmbHomeTeam.Size = new Size(196, 23);
+            cmbHomeTeam.TabIndex = 15;
+            // 
+            // cmbAwayteam
+            // 
+            cmbAwayteam.FormattingEnabled = true;
+            cmbAwayteam.Location = new Point(148, 197);
+            cmbAwayteam.Name = "cmbAwayteam";
+            cmbAwayteam.Size = new Size(196, 23);
+            cmbAwayteam.TabIndex = 16;
             // 
             // Match
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(label2);
+            Controls.Add(cmbAwayteam);
+            Controls.Add(cmbHomeTeam);
+            Controls.Add(dtpMatchDate);
+            Controls.Add(lblhomeTeam);
             Controls.Add(label3);
             Controls.Add(btnNext);
             Controls.Add(btnBack);
-            Controls.Add(txbHomeTeam);
-            Controls.Add(txbAwayTeam);
-            Controls.Add(label1);
-            Controls.Add(txbMatchDate);
+            Controls.Add(lblAwayTeam);
             Controls.Add(lblTeamName);
             Name = "Match";
             Text = "Match";
+            Load += Match_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private TextBox txbMatchDate;
         private Label lblTeamName;
-        private TextBox txbAwayTeam;
-        private Label label1;
-        private TextBox txbHomeTeam;
+        private Label lblAwayTeam;
 
         private Button btnNext;
         private Button btnBack;
         private Label label3;
-        private Label label2;
+        private Label lblhomeTeam;
+        private DateTimePicker dtpMatchDate;
+        private ComboBox cmbHomeTeam;
+        private ComboBox cmbAwayteam;
     }
 }

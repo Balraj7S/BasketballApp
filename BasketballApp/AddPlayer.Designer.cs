@@ -29,13 +29,18 @@
         private void InitializeComponent()
         {
             lblTeamName = new Label();
-            txbTeamName = new TextBox();
             lblPlayerName = new Label();
             txbPlayerName = new TextBox();
             lblPlayerPosition = new Label();
             txbPlayerPosition = new TextBox();
             btnBack = new Button();
             btnNext = new Button();
+            lblPlayerSurname = new Label();
+            txbPlayerSurname = new TextBox();
+            cmbTeamName = new ComboBox();
+            dataGridView1 = new DataGridView();
+            btnViewPlayer = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // lblTeamName
@@ -48,14 +53,6 @@
             lblTeamName.TabIndex = 1;
             lblTeamName.Text = "Team Name:";
             // 
-            // txbTeamName
-            // 
-            txbTeamName.Location = new Point(154, 112);
-            txbTeamName.Name = "txbTeamName";
-            txbTeamName.Size = new Size(133, 23);
-            txbTeamName.TabIndex = 3;
-      
-            // 
             // lblPlayerName
             // 
             lblPlayerName.AutoSize = true;
@@ -65,7 +62,6 @@
             lblPlayerName.Size = new Size(96, 20);
             lblPlayerName.TabIndex = 4;
             lblPlayerName.Text = "Player Name:";
-        
             // 
             // txbPlayerName
             // 
@@ -78,22 +74,23 @@
             // 
             lblPlayerPosition.AutoSize = true;
             lblPlayerPosition.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPlayerPosition.Location = new Point(39, 182);
+            lblPlayerPosition.Location = new Point(33, 215);
             lblPlayerPosition.Name = "lblPlayerPosition";
             lblPlayerPosition.Size = new Size(108, 20);
             lblPlayerPosition.TabIndex = 6;
             lblPlayerPosition.Text = "Player Position:";
+            lblPlayerPosition.Click += lblPlayerPosition_Click;
             // 
             // txbPlayerPosition
             // 
-            txbPlayerPosition.Location = new Point(153, 179);
+            txbPlayerPosition.Location = new Point(154, 212);
             txbPlayerPosition.Name = "txbPlayerPosition";
             txbPlayerPosition.Size = new Size(134, 23);
             txbPlayerPosition.TabIndex = 7;
             // 
             // btnBack
             // 
-            btnBack.Location = new Point(14, 365);
+            btnBack.Location = new Point(1, 365);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(201, 57);
             btnBack.TabIndex = 8;
@@ -102,7 +99,7 @@
             // 
             // btnNext
             // 
-            btnNext.Location = new Point(508, 365);
+            btnNext.Location = new Point(518, 356);
             btnNext.Name = "btnNext";
             btnNext.Size = new Size(201, 57);
             btnNext.TabIndex = 9;
@@ -110,33 +107,87 @@
             btnNext.UseVisualStyleBackColor = true;
             btnNext.Click += btnNext_Click;
             // 
+            // lblPlayerSurname
+            // 
+            lblPlayerSurname.AutoSize = true;
+            lblPlayerSurname.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPlayerSurname.Location = new Point(33, 183);
+            lblPlayerSurname.Name = "lblPlayerSurname";
+            lblPlayerSurname.Size = new Size(114, 20);
+            lblPlayerSurname.TabIndex = 10;
+            lblPlayerSurname.Text = "Player Surname:";
+            lblPlayerSurname.Click += label1_Click;
+            // 
+            // txbPlayerSurname
+            // 
+            txbPlayerSurname.Location = new Point(153, 180);
+            txbPlayerSurname.Name = "txbPlayerSurname";
+            txbPlayerSurname.Size = new Size(134, 23);
+            txbPlayerSurname.TabIndex = 11;
+            // 
+            // cmbTeamName
+            // 
+            cmbTeamName.FormattingEnabled = true;
+            cmbTeamName.Location = new Point(153, 115);
+            cmbTeamName.Name = "cmbTeamName";
+            cmbTeamName.Size = new Size(134, 23);
+            cmbTeamName.TabIndex = 12;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(332, 95);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(377, 191);
+            dataGridView1.TabIndex = 13;
+            // 
+            // btnViewPlayer
+            // 
+            btnViewPlayer.Location = new Point(272, 363);
+            btnViewPlayer.Name = "btnViewPlayer";
+            btnViewPlayer.Size = new Size(182, 52);
+            btnViewPlayer.TabIndex = 14;
+            btnViewPlayer.Text = "View Player";
+            btnViewPlayer.UseVisualStyleBackColor = true;
+            btnViewPlayer.Click += btnViewPlayer_Click;
+            // 
             // AddPlayer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(721, 449);
+            Controls.Add(btnViewPlayer);
+            Controls.Add(dataGridView1);
+            Controls.Add(cmbTeamName);
+            Controls.Add(txbPlayerSurname);
+            Controls.Add(lblPlayerSurname);
             Controls.Add(btnNext);
             Controls.Add(btnBack);
             Controls.Add(txbPlayerPosition);
             Controls.Add(lblPlayerPosition);
             Controls.Add(txbPlayerName);
             Controls.Add(lblPlayerName);
-            Controls.Add(txbTeamName);
             Controls.Add(lblTeamName);
             Name = "AddPlayer";
-            Text = "Team Form";
+            Text = " ";
+            Load += AddPlayer_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
         private Label lblTeamName;
-        private TextBox txbTeamName;
         private Label lblPlayerName;
         private TextBox txbPlayerName;
         private Label lblPlayerPosition;
         private TextBox txbPlayerPosition;
         private Button btnBack;
         private Button btnNext;
+        private Label lblPlayerSurname;
+        private TextBox txbPlayerSurname;
+        private ComboBox cmbTeamName;
+        private DataGridView dataGridView1;
+        private Button btnViewPlayer;
     }
 }

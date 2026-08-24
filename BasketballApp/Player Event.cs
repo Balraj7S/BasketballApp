@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,12 @@ using System.Windows.Forms;
 
 namespace BasketballApp
 {
-    public partial class Player_Event : Form
+    public partial class PlayerEvent : Form
     {
-        public Player_Event()
+        OleDbConnection connection = new OleDbConnection();
+        int playerId;
+        int matchId;
+        public PlayerEvent()
         {
             InitializeComponent();
         }
@@ -25,8 +29,9 @@ namespace BasketballApp
         private void InitializeComponent()
         {
             lblAddPlayer = new Label();
-            textBox1 = new TextBox();
+            tbxPlayerEvent = new TextBox();
             btnBack = new Button();
+            bntNext = new Button();
             SuspendLayout();
             // 
             // lblAddPlayer
@@ -40,29 +45,40 @@ namespace BasketballApp
             lblAddPlayer.Text = "AddPlayer:";
             lblAddPlayer.Click += label1_Click;
             // 
-            // textBox1
+            // tbxPlayerEvent
             // 
-            textBox1.Location = new Point(339, 189);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(200, 23);
-            textBox1.TabIndex = 1;
+            tbxPlayerEvent.Location = new Point(339, 189);
+            tbxPlayerEvent.Name = "tbxPlayerEvent";
+            tbxPlayerEvent.Size = new Size(200, 23);
+            tbxPlayerEvent.TabIndex = 1;
             // 
             // btnBack
             // 
-            btnBack.Location = new Point(1, 413);
+            btnBack.Location = new Point(0, 413);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(201, 57);
+            btnBack.Size = new Size(168, 57);
             btnBack.TabIndex = 9;
             btnBack.Text = "Back";
             btnBack.UseVisualStyleBackColor = true;
             // 
-            // Player_Event
+            // bntNext
+            // 
+            bntNext.Location = new Point(657, 413);
+            bntNext.Name = "bntNext";
+            bntNext.Size = new Size(179, 57);
+            bntNext.TabIndex = 10;
+            bntNext.Text = "Next";
+            bntNext.UseVisualStyleBackColor = true;
+            bntNext.Click += bntNext_Click;
+            // 
+            // PlayerEvent
             // 
             ClientSize = new Size(837, 469);
+            Controls.Add(bntNext);
             Controls.Add(btnBack);
-            Controls.Add(textBox1);
+            Controls.Add(tbxPlayerEvent);
             Controls.Add(lblAddPlayer);
-            Name = "Player_Event";
+            Name = "PlayerEvent";
             Load += Player_Event_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -73,23 +89,43 @@ namespace BasketballApp
         private void label1_Click(object sender, EventArgs e)
         {
 
-
-
-
-
-
-
-
-
-
         }
 
-        private TextBox textBox1;
+        private TextBox tbxPlayerEvent;
         private Button btnBack;
 
         private void Player_Event_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private Button bntNext;
+
+        private void bntNext_Click(object sender, EventArgs e)
+        {                                                                                             
+           
+            try
+            {
+                if (connection.State == ConnectionState.Open) connection.Close();
+                connection.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Application.StartupPath + "\\dbBasketball.accdb";
+                OleDbCommand command = new OleDbCommand();
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "INSERT INTO tblMatchEvent (PlayerId,MatchId,Event) VALUES (" + playerId + "," + matchId + ",'" + tbxPlayerEvent.Text + "')";
+                command.ExecuteNonQuery();
+                command.CommandText = "SELECT @@IDENTITY";
+                int playerId = Convert.ToInt32(command.ExecuteScalar());
+                MessageBox.Show("Event Saved");
+                connection.Close();
+                Finish finishForm = new Finish();
+                this.Hide();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex);
+
+            }
         }
     }
 }
