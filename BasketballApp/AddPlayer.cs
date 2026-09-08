@@ -25,6 +25,11 @@ namespace BasketballApp
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+            if (txbPlayerName.Text == "" || txbPlayerSurname.Text == "" || txbPlayerPosition.Text == "" || cmbTeamName.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please fill in all fields!");
+                return;
+            }
 
 
             try

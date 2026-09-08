@@ -19,6 +19,7 @@ namespace BasketballApp
 
         public Match(int PlayerId,int teamId)
         {
+            
             InitializeComponent();
             selectedTeamId = teamId;
             connection.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Application.StartupPath + "\\dbBasketball.accdb";
@@ -47,6 +48,7 @@ namespace BasketballApp
         {
 
         }
+        
 
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -55,6 +57,11 @@ namespace BasketballApp
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+            if (cmbHomeTeam.SelectedIndex == -1 || cmbAwayteam.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please selected both teams!");
+                return;
+            }
 
             try
             {
@@ -69,8 +76,8 @@ namespace BasketballApp
                 command.ExecuteNonQuery();
                 MessageBox.Show("Match Saved");
                 connection.Close();
-                PlayerEvent playerEventForm = new PlayerEvent();
-                playerEventForm.Show();
+                MatchEvent MatchEventForm = new MatchEvent();
+                MatchEventForm.Show();
                 this.Hide();
 
             }
@@ -79,7 +86,7 @@ namespace BasketballApp
                 MessageBox.Show("Error " + ex);
 
             }
-
+            
         }
 
         private void txbMatchDate_TextChanged(object sender, EventArgs e)
