@@ -60,6 +60,7 @@
             btnQuit.TabIndex = 2;
             btnQuit.Text = "Quit";
             btnQuit.UseVisualStyleBackColor = true;
+            btnQuit.Click += btnQuit_Click;
             // 
             // HomeForm
             // 

@@ -17,10 +17,14 @@ namespace BasketballApp
         OleDbConnection connection = new OleDbConnection();
         int playerId;
         int matchId;
-        public MatchEvent()
+        int teamId;
+        public MatchEvent(int pId, int mId, int tId)
         {
             InitializeComponent();
-            connection.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Application.StartupPath + "\\dbBasketball.accdb";
+            playerId = pId;
+            matchId = mId;
+            teamId = tId;
+            connection.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\\\filesrvr01\\home\\balrsing\\My Documents\\Projects\\BasketballApp\\BasketballApp\\dbBasketball.accdb;";
             connection.Open();
             connection.Close();
         }
@@ -64,6 +68,7 @@ namespace BasketballApp
             btnBack.TabIndex = 9;
             btnBack.Text = "Back";
             btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
             // 
             // bntNext
             // 
@@ -75,14 +80,14 @@ namespace BasketballApp
             bntNext.UseVisualStyleBackColor = true;
             bntNext.Click += bntNext_Click;
             // 
-            // PlayerEvent
+            // MatchEvent
             // 
             ClientSize = new Size(837, 469);
             Controls.Add(bntNext);
             Controls.Add(btnBack);
             Controls.Add(tbxMatchEvent);
             Controls.Add(lblAddPlayer);
-            Name = "PlayerEvent";
+            Name = "MatchEvent";
             Load += Player_Event_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -106,11 +111,11 @@ namespace BasketballApp
         private Button bntNext;
 
         private void bntNext_Click(object sender, EventArgs e)
-        {                                                                                             
-           
+        {
+
             try
             {
-                if (tbxMatchEvent.Text == "" )
+                if (tbxMatchEvent.Text == "")
                 {
                     MessageBox.Show("Please enter an event!");
                     return;
@@ -118,13 +123,13 @@ namespace BasketballApp
 
 
                 if (connection.State == ConnectionState.Open) connection.Close();
-                connection.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Application.StartupPath + "\\dbBasketball.accdb";
+                connection.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\\\filesrvr01\\home\\balrsing\\My Documents\\Projects\\BasketballApp\\BasketballApp\\dbBasketball.accdb;";
                 OleDbCommand command = new OleDbCommand();
                 connection.Open();
                 command.Connection = connection;
-                MessageBox.Show("Player ID:" + " playerId " + "Match ID:" + matchId);
+                MessageBox.Show("Player ID: " + " playerId " + "Match ID: " + matchId);
                 command.CommandText = "INSERT INTO tblMatchEvent (PlayerId,MatchId,Event) VALUES (" + playerId + "," + matchId + ",'" + tbxMatchEvent.Text + "')";
-             
+                command.ExecuteNonQuery();
                 MessageBox.Show("Event Saved!");
                 connection.Close();
                 Finish finishForm = new Finish();
@@ -137,6 +142,13 @@ namespace BasketballApp
                 MessageBox.Show("Error" + ex);
 
             }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Match matchForm = new Match(playerId, teamId);
+            matchForm.Show();
+            this.Hide();
         }
     }
 }

@@ -47,7 +47,7 @@
             // 
             lblTeamName.AutoSize = true;
             lblTeamName.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTeamName.Location = new Point(55, 115);
+            lblTeamName.Location = new Point(28, 115);
             lblTeamName.Name = "lblTeamName";
             lblTeamName.Size = new Size(92, 20);
             lblTeamName.TabIndex = 1;
@@ -57,7 +57,7 @@
             // 
             lblPlayerName.AutoSize = true;
             lblPlayerName.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPlayerName.Location = new Point(51, 151);
+            lblPlayerName.Location = new Point(24, 151);
             lblPlayerName.Name = "lblPlayerName";
             lblPlayerName.Size = new Size(96, 20);
             lblPlayerName.TabIndex = 4;
@@ -65,7 +65,7 @@
             // 
             // txbPlayerName
             // 
-            txbPlayerName.Location = new Point(153, 148);
+            txbPlayerName.Location = new Point(126, 148);
             txbPlayerName.Name = "txbPlayerName";
             txbPlayerName.Size = new Size(134, 23);
             txbPlayerName.TabIndex = 5;
@@ -74,7 +74,7 @@
             // 
             lblPlayerPosition.AutoSize = true;
             lblPlayerPosition.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPlayerPosition.Location = new Point(33, 215);
+            lblPlayerPosition.Location = new Point(6, 215);
             lblPlayerPosition.Name = "lblPlayerPosition";
             lblPlayerPosition.Size = new Size(108, 20);
             lblPlayerPosition.TabIndex = 6;
@@ -83,7 +83,7 @@
             // 
             // txbPlayerPosition
             // 
-            txbPlayerPosition.Location = new Point(154, 212);
+            txbPlayerPosition.Location = new Point(127, 212);
             txbPlayerPosition.Name = "txbPlayerPosition";
             txbPlayerPosition.Size = new Size(134, 23);
             txbPlayerPosition.TabIndex = 7;
@@ -96,6 +96,7 @@
             btnBack.TabIndex = 8;
             btnBack.Text = "Back";
             btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
             // 
             // btnNext
             // 
@@ -111,7 +112,7 @@
             // 
             lblPlayerSurname.AutoSize = true;
             lblPlayerSurname.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPlayerSurname.Location = new Point(33, 183);
+            lblPlayerSurname.Location = new Point(6, 183);
             lblPlayerSurname.Name = "lblPlayerSurname";
             lblPlayerSurname.Size = new Size(114, 20);
             lblPlayerSurname.TabIndex = 10;
@@ -120,7 +121,7 @@
             // 
             // txbPlayerSurname
             // 
-            txbPlayerSurname.Location = new Point(153, 180);
+            txbPlayerSurname.Location = new Point(126, 180);
             txbPlayerSurname.Name = "txbPlayerSurname";
             txbPlayerSurname.Size = new Size(134, 23);
             txbPlayerSurname.TabIndex = 11;
@@ -128,7 +129,7 @@
             // cmbTeamName
             // 
             cmbTeamName.FormattingEnabled = true;
-            cmbTeamName.Location = new Point(153, 115);
+            cmbTeamName.Location = new Point(126, 115);
             cmbTeamName.Name = "cmbTeamName";
             cmbTeamName.Size = new Size(134, 23);
             cmbTeamName.TabIndex = 12;
@@ -136,9 +137,9 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(332, 95);
+            dataGridView1.Location = new Point(272, 87);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(377, 191);
+            dataGridView1.Size = new Size(474, 243);
             dataGridView1.TabIndex = 13;
             // 
             // btnViewPlayer
@@ -155,7 +156,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(721, 449);
+            ClientSize = new Size(758, 449);
             Controls.Add(btnViewPlayer);
             Controls.Add(dataGridView1);
             Controls.Add(cmbTeamName);

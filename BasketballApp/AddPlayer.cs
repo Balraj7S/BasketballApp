@@ -10,7 +10,7 @@ namespace BasketballApp
         public AddPlayer()
         {
             InitializeComponent();
-            connection.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Application.StartupPath + "\\dbBasketball.accdb";
+            connection.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\\\filesrvr01\\home\\balrsing\\My Documents\\Projects\\BasketballApp\\BasketballApp\\dbBasketball.accdb;";
             connection.Open();
             OleDbCommand command = new OleDbCommand("Select TeamId,TeamName From tblTeams", connection);
             OleDbDataReader reader = command.ExecuteReader();
@@ -35,8 +35,7 @@ namespace BasketballApp
             try
             {
                 if (connection.State == ConnectionState.Open) connection.Close();
-                connection.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Application.StartupPath + "\\dbBasketball.accdb";
-                OleDbCommand command = new OleDbCommand();
+                connection.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\\\filesrvr01\\home\\balrsing\\My Documents\\Projects\\BasketballApp\\BasketballApp\\dbBasketball.accdb;"; OleDbCommand command = new OleDbCommand();
                 connection.Open();
                 command.Connection = connection;
                 int teamId = cmbTeamName.SelectedIndex + 1;
@@ -46,9 +45,9 @@ namespace BasketballApp
                 int playerId = Convert.ToInt32(command.ExecuteScalar());
                 MessageBox.Show("Player Saved");
                 connection.Close();
-                Match matchForm = new Match(playerId,teamId);
+                Match matchForm = new Match(playerId, teamId);
                 matchForm.Show();
-                this.Hide();  
+                this.Hide();
             }
             catch (Exception ex)
             {
@@ -82,14 +81,14 @@ namespace BasketballApp
 
 
         }
-     
+
 
         private void btnViewPlayer_Click(object sender, EventArgs e)
         {
             try
             {
                 if (connection.State == ConnectionState.Open) connection.Close();
-                connection.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Application.StartupPath + "\\dbBasketball.accdb";
+                connection.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\\\filesrvr01\\home\\balrsing\\My Documents\\Projects\\BasketballApp\\BasketballApp\\dbBasketball.accdb;";
                 OleDbCommand command = new OleDbCommand();
                 connection.Open();
                 command.Connection = connection;
@@ -101,13 +100,20 @@ namespace BasketballApp
                 dataGridView1.DataSource = dt;
                 connection.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error" + ex);
 
             }
 
 
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            HomeForm homeForm = new HomeForm();
+            homeForm.Show();
+            this.Hide();
         }
     }
 }

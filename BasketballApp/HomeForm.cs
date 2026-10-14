@@ -30,8 +30,13 @@ namespace BasketballApp
         {
             AddPlayer addPlayerForm = new AddPlayer();
             addPlayerForm.Show();
-            this.Hide();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+            this.Hide();
 
+        }
+
+        private void btnQuit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
