@@ -14,52 +14,57 @@ namespace BasketballApp
     {
         OleDbConnection connection = new OleDbConnection();
 
-        public Finish()
-        {   
-            
-            
-            InitializeComponent(); 
+        public Finish() // Calss LoadData() automatically when Finish form opens
+        {
+            InitializeComponent();
             LoadData();
         }
-        private void LoadData()
 
+        private void LoadData() // Retreives all player data from tblPlayer using SELECT query
+                                // Displays result in DataGrtidView form coach to view
         {
-
             try
-
             {
+                if (connection.State == ConnectionState.Open) connection.Close(); // closes the connection if it is already open
+                connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=dbBasketball.accdb;"; // sets the connection string for the access database
+                connection.Open(); // opens the connection to the database
+                string query = "SELECT tblPlayer.PlayerId, tblPlayer.[Name], tblPlayer.Surname, tblTeams.TeamName, tblMatches.MatchDate, tblMatchEvent.[Event] " +
+                    "FROM (((tblPlayer " +
+                    "INNER JOIN tblTeams ON tblPlayer.TeamId = tblTeams.TeamId) " +
+                    "INNER JOIN tblMatchEvent ON tblPlayer.PlayerId = tblMatchEvent.PlayerId) " +
+                    "INNER JOIN tblMatches ON tblMatchEvent.MatchId = tblMatches.MatchId)"; // query to retrieve player data along with team names, match dates, and events using INNER JOINs
 
-                if (connection.State == ConnectionState.Open) connection.Close();
-                connection.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\\\filesrvr01\\home\\balrsing\\My Documents\\Projects\\BasketballApp\\BasketballApp\\dbBasketball.accdb;";
-                connection.Open();
-                OleDbDataAdapter da = new OleDbDataAdapter("SELECT * FROM tblPlayer", connection);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                dataGridView1.DataSource = dt;
-                connection.Close();
+                OleDbDataAdapter da = new OleDbDataAdapter(query, connection); // creates a data adapter to fill the DataTable with the results of the query
+                DataTable dt = new DataTable(); // creates a DataTable to hold the results of the query
+                da.Fill(dt); // fills the DataTable with the results of the query
+                dGVSummary.DataSource = dt; // sets the DataSource of the DataGridView to the DataTable to display the results
+                connection.Close(); // closes the connection to the database
             }
-
-            catch (Exception ex)
-
+            catch (Exception ex) // catches any exceptions that occur during the database operations
             {
-
-                MessageBox.Show("Error:" + ex);
-
+                MessageBox.Show("Error:" + ex); // shows a message box with the error message if an exception occurs
             }
-
         }
 
+        private void btnBack_Click(object sender, EventArgs e) // return user to Home form
+        {
+            Home homeForm = new Home(); // creates a new instance of the Home form
+            homeForm.Show(); // shows the Home form to allow the user to return to the main menu
+            this.Hide(); // hides the current Finish form to prevent the user from interacting with it while returning to the main menu
+        }
+
+        private void btnAddnewPlayer_Click(object sender, EventArgs e) // Takes user to add new player
+        {
+            AddPlayer addPlayerForm = new AddPlayer(); // creates a new instance of the AddPlayer form
+            addPlayerForm.Show();// shows the AddPlayer form to allow the user to add a new player
+            this.Hide();// hides the current Finish form to prevent the user from interacting with it while adding a new player
+        }
+        
         private void Finish_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            HomeForm homeForm = new HomeForm();
-            homeForm.Show();
-            this.Hide();
-            
-        }
+        
     }
 }

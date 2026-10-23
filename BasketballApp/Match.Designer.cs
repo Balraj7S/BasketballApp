@@ -36,7 +36,7 @@
             lblhomeTeam = new Label();
             dtpMatchDate = new DateTimePicker();
             cmbHomeTeam = new ComboBox();
-            cmbAwayteam = new ComboBox();
+            cmbAwayTeam = new ComboBox();
             SuspendLayout();
             // 
             // lblTeamName
@@ -108,26 +108,28 @@
             // 
             // cmbHomeTeam
             // 
+            cmbHomeTeam.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbHomeTeam.FormattingEnabled = true;
             cmbHomeTeam.Location = new Point(148, 164);
             cmbHomeTeam.Name = "cmbHomeTeam";
             cmbHomeTeam.Size = new Size(196, 23);
             cmbHomeTeam.TabIndex = 15;
             // 
-            // cmbAwayteam
+            // cmbAwayTeam
             // 
-            cmbAwayteam.FormattingEnabled = true;
-            cmbAwayteam.Location = new Point(148, 197);
-            cmbAwayteam.Name = "cmbAwayteam";
-            cmbAwayteam.Size = new Size(196, 23);
-            cmbAwayteam.TabIndex = 16;
+            cmbAwayTeam.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbAwayTeam.FormattingEnabled = true;
+            cmbAwayTeam.Location = new Point(148, 197);
+            cmbAwayTeam.Name = "cmbAwayTeam";
+            cmbAwayTeam.Size = new Size(196, 23);
+            cmbAwayTeam.TabIndex = 16;
             // 
             // Match
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(cmbAwayteam);
+            Controls.Add(cmbAwayTeam);
             Controls.Add(cmbHomeTeam);
             Controls.Add(dtpMatchDate);
             Controls.Add(lblhomeTeam);
@@ -153,6 +155,6 @@
         private Label lblhomeTeam;
         private DateTimePicker dtpMatchDate;
         private ComboBox cmbHomeTeam;
-        private ComboBox cmbAwayteam;
+        private ComboBox cmbAwayTeam;
     }
 }

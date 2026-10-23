@@ -1,6 +1,6 @@
 ﻿namespace BasketballApp
 {
-    partial class HomeForm
+    partial class Home
     {
         /// <summary>
         /// Required designer variable.
@@ -50,7 +50,7 @@
             bntAddPlayer.TabIndex = 1;
             bntAddPlayer.Text = "Add Player";
             bntAddPlayer.UseVisualStyleBackColor = true;
-            bntAddPlayer.Click += bntAddPlayer_Click;
+            bntAddPlayer.Click += btnAddPlayer_Click;
             // 
             // btnQuit
             // 
@@ -62,7 +62,7 @@
             btnQuit.UseVisualStyleBackColor = true;
             btnQuit.Click += btnQuit_Click;
             // 
-            // HomeForm
+            // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -70,8 +70,8 @@
             Controls.Add(btnQuit);
             Controls.Add(bntAddPlayer);
             Controls.Add(lblwelcome);
-            Name = "HomeForm";
-            Text = "HomeForm";
+            Name = "Home";
+            Text = "Home";
             Load += HomeForm_Load;
             ResumeLayout(false);
             PerformLayout();

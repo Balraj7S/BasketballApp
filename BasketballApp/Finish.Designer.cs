@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label1 = new Label();
             lblPlayerDetails = new Label();
-            dataGridView1 = new DataGridView();
+            dGVSummary = new DataGridView();
             btnBack = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            btnAddnewPlayer = new Button();
+            ((System.ComponentModel.ISupportInitialize)dGVSummary).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -52,44 +53,45 @@
             // lblPlayerDetails
             // 
             lblPlayerDetails.AutoSize = true;
-            lblPlayerDetails.Location = new Point(21, 65);
+            lblPlayerDetails.Location = new Point(9, 45);
             lblPlayerDetails.Margin = new Padding(0);
             lblPlayerDetails.Name = "lblPlayerDetails";
             lblPlayerDetails.Size = new Size(77, 15);
             lblPlayerDetails.TabIndex = 4;
             lblPlayerDetails.Text = "Player Details";
             // 
-            // dataGridView1
+            // dGVSummary
             // 
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = SystemColors.Control;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = SystemColors.Window;
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
-            dataGridView1.Location = new Point(105, 87);
-            dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = SystemColors.Control;
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            dataGridView1.Size = new Size(599, 278);
-            dataGridView1.TabIndex = 5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dGVSummary.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dGVSummary.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dGVSummary.DefaultCellStyle = dataGridViewCellStyle2;
+            dGVSummary.Location = new Point(113, 68);
+            dGVSummary.Name = "dGVSummary";
+            dGVSummary.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dGVSummary.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dGVSummary.Size = new Size(646, 310);
+            dGVSummary.TabIndex = 5;
             // 
             // btnBack
             // 
@@ -101,13 +103,24 @@
             btnBack.UseVisualStyleBackColor = true;
             btnBack.Click += btnBack_Click;
             // 
+            // btnAddnewPlayer
+            // 
+            btnAddnewPlayer.Location = new Point(662, 384);
+            btnAddnewPlayer.Name = "btnAddnewPlayer";
+            btnAddnewPlayer.Size = new Size(142, 62);
+            btnAddnewPlayer.TabIndex = 7;
+            btnAddnewPlayer.Text = "Add new Player";
+            btnAddnewPlayer.UseVisualStyleBackColor = true;
+            btnAddnewPlayer.Click += btnAddnewPlayer_Click;
+            // 
             // Finish
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(840, 450);
+            Controls.Add(btnAddnewPlayer);
             Controls.Add(btnBack);
-            Controls.Add(dataGridView1);
+            Controls.Add(dGVSummary);
             Controls.Add(lblPlayerDetails);
             Controls.Add(label1);
             Font = new Font("Segoe UI", 9F);
@@ -115,7 +128,7 @@
             Name = "Finish";
             Text = "Finish";
             Load += Finish_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dGVSummary).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -124,7 +137,8 @@
 
         private Label label1;
         private Label lblPlayerDetails;
-        private DataGridView dataGridView1;
+        private DataGridView dGVSummary;
         private Button btnBack;
+        private Button btnAddnewPlayer;
     }
 }

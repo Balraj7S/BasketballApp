@@ -37,10 +37,10 @@
             btnNext = new Button();
             lblPlayerSurname = new Label();
             txbPlayerSurname = new TextBox();
-            cmbTeamName = new ComboBox();
-            dataGridView1 = new DataGridView();
+            dGVPlayerView = new DataGridView();
             btnViewPlayer = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            cmbTeamName = new ComboBox();
+            ((System.ComponentModel.ISupportInitialize)dGVPlayerView).BeginInit();
             SuspendLayout();
             // 
             // lblTeamName
@@ -100,7 +100,7 @@
             // 
             // btnNext
             // 
-            btnNext.Location = new Point(518, 356);
+            btnNext.Location = new Point(525, 361);
             btnNext.Name = "btnNext";
             btnNext.Size = new Size(201, 57);
             btnNext.TabIndex = 9;
@@ -126,21 +126,14 @@
             txbPlayerSurname.Size = new Size(134, 23);
             txbPlayerSurname.TabIndex = 11;
             // 
-            // cmbTeamName
+            // dGVPlayerView
             // 
-            cmbTeamName.FormattingEnabled = true;
-            cmbTeamName.Location = new Point(126, 115);
-            cmbTeamName.Name = "cmbTeamName";
-            cmbTeamName.Size = new Size(134, 23);
-            cmbTeamName.TabIndex = 12;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(272, 87);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(474, 243);
-            dataGridView1.TabIndex = 13;
+            dGVPlayerView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dGVPlayerView.Location = new Point(272, 87);
+            dGVPlayerView.Name = "dGVPlayerView";
+            dGVPlayerView.ReadOnly = true;
+            dGVPlayerView.Size = new Size(474, 243);
+            dGVPlayerView.TabIndex = 13;
             // 
             // btnViewPlayer
             // 
@@ -152,13 +145,22 @@
             btnViewPlayer.UseVisualStyleBackColor = true;
             btnViewPlayer.Click += btnViewPlayer_Click;
             // 
+            // cmbTeamName
+            // 
+            cmbTeamName.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbTeamName.FormattingEnabled = true;
+            cmbTeamName.Location = new Point(126, 115);
+            cmbTeamName.Name = "cmbTeamName";
+            cmbTeamName.Size = new Size(134, 23);
+            cmbTeamName.TabIndex = 12;
+            // 
             // AddPlayer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(758, 449);
             Controls.Add(btnViewPlayer);
-            Controls.Add(dataGridView1);
+            Controls.Add(dGVPlayerView);
             Controls.Add(cmbTeamName);
             Controls.Add(txbPlayerSurname);
             Controls.Add(lblPlayerSurname);
@@ -172,7 +174,7 @@
             Name = "AddPlayer";
             Text = " ";
             Load += AddPlayer_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dGVPlayerView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -187,8 +189,8 @@
         private Button btnNext;
         private Label lblPlayerSurname;
         private TextBox txbPlayerSurname;
-        private ComboBox cmbTeamName;
-        private DataGridView dataGridView1;
+        private DataGridView dGVPlayerView;
         private Button btnViewPlayer;
+        private ComboBox cmbTeamName;
     }
 }

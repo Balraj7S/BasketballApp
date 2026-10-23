@@ -11,33 +11,31 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BasketballApp
 {
-    public partial class HomeForm : Form
-
+    public partial class Home : Form
     {
-        string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data Source = ""\\filesrvr01\home\balrsing\My Documents\Projects\BasketballApp\BasketballApp\dbBasketball.accdb";
-        public HomeForm()
+        // db connection string for access database
+        string connectionString  = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=dbBasketball.accdb;"; // connection string for access database
+
+        public Home()
         {
             InitializeComponent();
         }
 
         private void HomeForm_Load(object sender, EventArgs e)
         {
-
-
+            
         }
 
-        private void bntAddPlayer_Click(object sender, EventArgs e)
+        private void btnAddPlayer_Click(object sender, EventArgs e) // opens the AddPlayer form and hides the Home form
         {
-            AddPlayer addPlayerForm = new AddPlayer();
+            AddPlayer addPlayerForm = new AddPlayer(); // creates a new instance of the AddPlayer form
             addPlayerForm.Show();
-            this.Hide();
-
+            this.Hide(); // opens the AddPlayer form and hides the Home form
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Application.Exit(); // exits the app completely
         }
     }
 }
-                                                                                                          
