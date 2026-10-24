@@ -21,11 +21,6 @@ namespace BasketballApp
             InitializeComponent();
         }
 
-        private void HomeForm_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnAddPlayer_Click(object sender, EventArgs e) // opens the AddPlayer form and hides the Home form
         {
             AddPlayer addPlayerForm = new AddPlayer(); // creates a new instance of the AddPlayer form

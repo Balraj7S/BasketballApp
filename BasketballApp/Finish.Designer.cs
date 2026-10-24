@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             label1 = new Label();
             lblPlayerDetails = new Label();
             dGVSummary = new DataGridView();
-            btnBack = new Button();
+            btnHome = new Button();
             btnAddnewPlayer = new Button();
             ((System.ComponentModel.ISupportInitialize)dGVSummary).BeginInit();
             SuspendLayout();
@@ -62,46 +62,46 @@
             // 
             // dGVSummary
             // 
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dGVSummary.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dGVSummary.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dGVSummary.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dGVSummary.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dGVSummary.DefaultCellStyle = dataGridViewCellStyle5;
             dGVSummary.Location = new Point(113, 68);
             dGVSummary.Name = "dGVSummary";
             dGVSummary.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dGVSummary.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Control;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dGVSummary.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dGVSummary.Size = new Size(646, 310);
             dGVSummary.TabIndex = 5;
             // 
-            // btnBack
+            // btnHome
             // 
-            btnBack.Location = new Point(32, 384);
-            btnBack.Name = "btnBack";
-            btnBack.Size = new Size(145, 62);
-            btnBack.TabIndex = 6;
-            btnBack.Text = "Back";
-            btnBack.UseVisualStyleBackColor = true;
-            btnBack.Click += btnBack_Click;
+            btnHome.Location = new Point(32, 384);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(145, 62);
+            btnHome.TabIndex = 6;
+            btnHome.Text = "Home";
+            btnHome.UseVisualStyleBackColor = true;
+            btnHome.Click += btnBack_Click;
             // 
             // btnAddnewPlayer
             // 
@@ -119,7 +119,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(840, 450);
             Controls.Add(btnAddnewPlayer);
-            Controls.Add(btnBack);
+            Controls.Add(btnHome);
             Controls.Add(dGVSummary);
             Controls.Add(lblPlayerDetails);
             Controls.Add(label1);
@@ -127,7 +127,6 @@
             Margin = new Padding(0, 5, 0, 5);
             Name = "Finish";
             Text = "Finish";
-            Load += Finish_Load;
             ((System.ComponentModel.ISupportInitialize)dGVSummary).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -138,7 +137,7 @@
         private Label label1;
         private Label lblPlayerDetails;
         private DataGridView dGVSummary;
-        private Button btnBack;
+        private Button btnHome;
         private Button btnAddnewPlayer;
     }
 }

@@ -52,16 +52,20 @@ namespace BasketballApp
         }
 
         private void btnNext_Click(object sender, EventArgs e) // Validates teams are selected and not the same, saves match to tblMatches
-                                                               // Retrieves new MatchId using @@IDENTITY and pasas playerId and amtchID to MatchEvent form
         {
+            if (dtpMatchDate.Value.Date > DateTime.Today) // checks if the selected match date is in the future
+            {
+                MessageBox.Show("Match date must be in the past!"); // shows a message box if the selected match date is in the future
+                return;
+            }
             if (cmbHomeTeam.SelectedIndex == -1 || cmbAwayTeam.SelectedIndex == -1) // checks if both teams are selected in the ComboBoxes
             {
-                MessageBox.Show("Please selected both. teams!"); // shows a message box if either team is not selected
+                MessageBox.Show("Please select both teams!"); // shows a message box if either team is not selected
                 return; // exits the method if either team is not selected
             }
             if (cmbHomeTeam.SelectedIndex == cmbAwayTeam.SelectedIndex) // checks if the same team is selected for both home and away teams
             {
-                MessageBox.Show("Home and Away Team cannot be ther same! Please select different teams."); // shows a message box if the same team is selected for both home and away teams
+                MessageBox.Show("Home and Away Team cannot be the same! Please select different teams."); // shows a message box if the same team is selected for both home and away teams
                 return;
             }
 
@@ -96,26 +100,6 @@ namespace BasketballApp
             cmbAwayTeam.SelectedIndex = awayIdx; // sets the selected index of the away team ComboBox to the provided awayIdx
         }
     
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Match_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txbAwayTeam_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        
-
-        private void txbMatchDate_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
 

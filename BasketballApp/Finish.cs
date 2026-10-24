@@ -28,10 +28,11 @@ namespace BasketballApp
                 if (connection.State == ConnectionState.Open) connection.Close(); // closes the connection if it is already open
                 connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=dbBasketball.accdb;"; // sets the connection string for the access database
                 connection.Open(); // opens the connection to the database
-                string query = "SELECT tblPlayer.PlayerId, tblPlayer.[Name], tblPlayer.Surname, tblTeams.TeamName, tblMatches.MatchDate, tblMatchEvent.[Event] " +
-                    "FROM (((tblPlayer " +
-                    "INNER JOIN tblTeams ON tblPlayer.TeamId = tblTeams.TeamId) " +
-                    "INNER JOIN tblMatchEvent ON tblPlayer.PlayerId = tblMatchEvent.PlayerId) " +
+                string query = "SELECT tblPlayer.PlayerId" + // selects player data from tblPlayer along with team names, match dates, and events using INNER JOINs
+                    ", tblPlayer.[Name], tblPlayer.Surname, tblTeams.TeamName, tblMatches.MatchDate, tblMatchEvent.[Event] " + // selects the PlayerId, Name, Surname, TeamName, MatchDate, and Event columns from the joined tables
+                    "FROM (((tblPlayer " + // joins tblPlayer to tblTeams on TeamId to get the team names associated with each player
+                    "INNER JOIN tblTeams ON tblPlayer.TeamId = tblTeams.TeamId) " + // joins tblTeams to tblPlayer on TeamId to get the team names associated with each player
+                    "INNER JOIN tblMatchEvent ON tblPlayer.PlayerId = tblMatchEvent.PlayerId) " + // joins tblMatchEvent to tblPlayer on PlayerId to get the events associated with each player
                     "INNER JOIN tblMatches ON tblMatchEvent.MatchId = tblMatches.MatchId)"; // query to retrieve player data along with team names, match dates, and events using INNER JOINs
 
                 OleDbDataAdapter da = new OleDbDataAdapter(query, connection); // creates a data adapter to fill the DataTable with the results of the query
@@ -59,12 +60,7 @@ namespace BasketballApp
             addPlayerForm.Show();// shows the AddPlayer form to allow the user to add a new player
             this.Hide();// hides the current Finish form to prevent the user from interacting with it while adding a new player
         }
-        
-        private void Finish_Load(object sender, EventArgs e)
-        {
 
-        }
-
-        
+      
     }
 }

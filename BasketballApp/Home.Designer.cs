@@ -72,7 +72,6 @@
             Controls.Add(lblwelcome);
             Name = "Home";
             Text = "Home";
-            Load += HomeForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

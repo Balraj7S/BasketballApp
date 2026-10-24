@@ -77,7 +77,7 @@ namespace BasketballApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error " + ex);
+                MessageBox.Show("Error " + ex); // show a message box with the error message if an exception occurs
             }
         }
 
@@ -93,12 +93,17 @@ namespace BasketballApp
         {
             try
             {
-                if (connection.State == ConnectionState.Open) connection.Close();
-                connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=dbBasketball.accdb;";
-                OleDbCommand command = new OleDbCommand();
-                connection.Open();
-                command.Connection = connection; // Use INNER JOIN to get team names from tblTeams based on TeamId
-                string query = "SELECT tblPlayer.PlayerId, tblPlayer.[Name], tblPlayer.Surname, tblPlayer.[Position], tblTeams.TeamName FROM tblPlayer INNER JOIN tblTeams On tblPlayer.TeamID = tblTeams.TeamId"; // Use INNER JOIN to get team names from tblTeams based on TeamId
+                if (connection.State == ConnectionState.Open) connection.Close(); // closes the connection if it is already open
+                connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=dbBasketball.accdb;"; // sets the connection string for the access database
+                OleDbCommand command = new OleDbCommand();  // creates a new command object to execute SQL commands
+                connection.Open(); // opens the connection to the database
+                command.Connection = connection; // sets the connection for the command object to the opened connection
+                string query = "SELECT tblPlayer.PlayerId" + // selects player data from tblPlayer along with team names, match dates, and events using INNER JOINs
+                    ", tblPlayer.[Name], tblPlayer.Surname, tblTeams.TeamName, tblMatches.MatchDate, tblMatchEvent.[Event] " + // selects the PlayerId, Name, Surname, TeamName, MatchDate, and Event columns from the joined tables
+                    "FROM (((tblPlayer " + // joins tblPlayer to tblTeams on TeamId to get the team names associated with each player
+                    "INNER JOIN tblTeams ON tblPlayer.TeamId = tblTeams.TeamId) " + // joins tblTeams to tblPlayer on TeamId to get the team names associated with each player
+                    "INNER JOIN tblMatchEvent ON tblPlayer.PlayerId = tblMatchEvent.PlayerId) " + // joins tblMatchEvent to tblPlayer on PlayerId to get the events associated with each player
+                    "INNER JOIN tblMatches ON tblMatchEvent.MatchId = tblMatches.MatchId)"; // query to retrieve player data along with team names, match dates, and events using INNER JOINs
                 command.CommandText = query; // set the command text to the query
                 OleDbDataAdapter da = new OleDbDataAdapter(command); // create a data adapter to fill the DataTable with the results of the query
                 DataTable dt = new DataTable(); // create a DataTable to hold the results of the query
@@ -117,35 +122,6 @@ namespace BasketballApp
             Home homeForm = new Home();
             homeForm.Show();
             this.Hide();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-    
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void lblPlayerPosition_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AddPlayer_Load(object sender, EventArgs e)
-        {
-
-
-
-
         }
 
 

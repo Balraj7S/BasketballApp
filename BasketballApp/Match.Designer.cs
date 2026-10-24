@@ -140,7 +140,6 @@
             Controls.Add(lblTeamName);
             Name = "Match";
             Text = "Match";
-            Load += Match_Load;
             ResumeLayout(false);
             PerformLayout();
         }

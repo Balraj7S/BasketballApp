@@ -79,7 +79,6 @@
             lblPlayerPosition.Size = new Size(108, 20);
             lblPlayerPosition.TabIndex = 6;
             lblPlayerPosition.Text = "Player Position:";
-            lblPlayerPosition.Click += lblPlayerPosition_Click;
             // 
             // txbPlayerPosition
             // 
@@ -117,7 +116,6 @@
             lblPlayerSurname.Size = new Size(114, 20);
             lblPlayerSurname.TabIndex = 10;
             lblPlayerSurname.Text = "Player Surname:";
-            lblPlayerSurname.Click += label1_Click;
             // 
             // txbPlayerSurname
             // 
@@ -173,7 +171,6 @@
             Controls.Add(lblTeamName);
             Name = "AddPlayer";
             Text = " ";
-            Load += AddPlayer_Load;
             ((System.ComponentModel.ISupportInitialize)dGVPlayerView).EndInit();
             ResumeLayout(false);
             PerformLayout();

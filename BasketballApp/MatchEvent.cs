@@ -34,29 +34,24 @@ namespace BasketballApp
             connection.Open(); // opens the connection to the database
             connection.Close(); // closes the connection to the database
         }
-        private void txbAddPlayerEvent_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void InitializeComponent()
         {
-            lblAddPlayer = new Label();
+            lblAddPlayerEvent = new Label();
             txbMatchEvent = new TextBox();
             btnBack = new Button();
             bntNext = new Button();
             SuspendLayout();
             // 
-            // lblAddPlayer
+            // lblAddPlayerEvent
             // 
-            lblAddPlayer.AutoSize = true;
-            lblAddPlayer.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblAddPlayer.Location = new Point(223, 191);
-            lblAddPlayer.Name = "lblAddPlayer";
-            lblAddPlayer.Size = new Size(84, 21);
-            lblAddPlayer.TabIndex = 0;
-            lblAddPlayer.Text = "AddPlayer:";
-            lblAddPlayer.Click += label1_Click;
+            lblAddPlayerEvent.AutoSize = true;
+            lblAddPlayerEvent.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblAddPlayerEvent.Location = new Point(188, 191);
+            lblAddPlayerEvent.Name = "lblAddPlayerEvent";
+            lblAddPlayerEvent.Size = new Size(130, 21);
+            lblAddPlayerEvent.TabIndex = 0;
+            lblAddPlayerEvent.Text = "Add Player Event:";
             // 
             // txbMatchEvent
             // 
@@ -91,27 +86,17 @@ namespace BasketballApp
             Controls.Add(bntNext);
             Controls.Add(btnBack);
             Controls.Add(txbMatchEvent);
-            Controls.Add(lblAddPlayer);
+            Controls.Add(lblAddPlayerEvent);
             Name = "MatchEvent";
-            Load += Player_Event_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
-        private Label lblAddPlayer;
+        private Label lblAddPlayerEvent;
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private TextBox txbMatchEvent;
         private Button btnBack;
-
-        private void Player_Event_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private Button bntNext;
         private void btnNext_Click(object sender, EventArgs e) // Saves match event to tblMatchEvent and returns user to Finish form
@@ -124,13 +109,13 @@ namespace BasketballApp
                     return;
                 }
 
-                // Block single quotes and semicolons to stop crashes and SQL errors
-                if (txbMatchEvent.Text.Contains("'") || txbMatchEvent.Text.Contains(";"))
-                {
-                    MessageBox.Show("Special characters like quotes (') and semicolons (;) are not allowed in match events!"); // shows a message box if the match event textbox contains special characters
-                    return; 
+                if (!System.Text.RegularExpressions.Regex.IsMatch(txbMatchEvent.Text, @"^[a-zA-Z0-9\s]+$")) // checks if the match event textbox contains only letters, numbers,and spaces
+                 {
+                    MessageBox.Show("Match event can only contain letters, nunbers and spaces!");// shows a nessage box If the match event textbox contains symbols!
+                    return;
                 }
 
+                 
                 if (connection.State == ConnectionState.Open) connection.Close(); // closes the connection if it is already open
                 connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=dbBasketball.accdb;"; // sets the connection string for the access database
                 OleDbCommand command = new OleDbCommand(); // creates a new command object to execute SQL commands
