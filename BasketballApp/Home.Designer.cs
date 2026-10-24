@@ -28,35 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblwelcome = new Label();
-            bntAddPlayer = new Button();
+            lblWelcome = new Label();
+            btnAddPlayer = new Button();
             btnQuit = new Button();
             SuspendLayout();
             // 
-            // lblwelcome
+            // lblWelcome
             // 
-            lblwelcome.AutoSize = true;
-            lblwelcome.Location = new Point(347, 38);
-            lblwelcome.Name = "lblwelcome";
-            lblwelcome.Size = new Size(57, 15);
-            lblwelcome.TabIndex = 0;
-            lblwelcome.Text = "Welcome";
+            lblWelcome.AutoSize = true;
+            lblWelcome.Font = new Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblWelcome.Location = new Point(223, 46);
+            lblWelcome.Name = "lblWelcome";
+            lblWelcome.Size = new Size(316, 86);
+            lblWelcome.TabIndex = 0;
+            lblWelcome.Text = "Welcome";
             // 
-            // bntAddPlayer
+            // btnAddPlayer
             // 
-            bntAddPlayer.Location = new Point(223, 163);
-            bntAddPlayer.Name = "bntAddPlayer";
-            bntAddPlayer.Size = new Size(309, 134);
-            bntAddPlayer.TabIndex = 1;
-            bntAddPlayer.Text = "Add Player";
-            bntAddPlayer.UseVisualStyleBackColor = true;
-            bntAddPlayer.Click += btnAddPlayer_Click;
+            btnAddPlayer.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnAddPlayer.Location = new Point(182, 163);
+            btnAddPlayer.Name = "btnAddPlayer";
+            btnAddPlayer.Size = new Size(350, 167);
+            btnAddPlayer.TabIndex = 1;
+            btnAddPlayer.Text = "Add Player";
+            btnAddPlayer.UseVisualStyleBackColor = true;
+            btnAddPlayer.Click += btnAddPlayer_Click;
             // 
             // btnQuit
             // 
-            btnQuit.Location = new Point(675, 384);
+            btnQuit.Location = new Point(653, 377);
             btnQuit.Name = "btnQuit";
-            btnQuit.Size = new Size(113, 54);
+            btnQuit.Size = new Size(135, 61);
             btnQuit.TabIndex = 2;
             btnQuit.Text = "Quit";
             btnQuit.UseVisualStyleBackColor = true;
@@ -68,8 +70,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(btnQuit);
-            Controls.Add(bntAddPlayer);
-            Controls.Add(lblwelcome);
+            Controls.Add(btnAddPlayer);
+            Controls.Add(lblWelcome);
             Name = "Home";
             Text = "Home";
             ResumeLayout(false);
@@ -78,8 +80,8 @@
 
         #endregion
 
-        private Label lblwelcome;
-        private Button bntAddPlayer;
+        private Label lblWelcome;
+        private Button btnAddPlayer;
         private Button btnQuit;
     }
 }
