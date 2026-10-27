@@ -30,7 +30,7 @@ namespace BasketballApp
             homeTeamIndex = homeIdx; // stores the home team index passed from Match form
             awayTeamIndex = awayIdx; // stores the away team index passed from Match form
 
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=dbBasketball.accdb;"; // sets the connection string for the access database
+            connection.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\\\filesrvr01\\home\\balrsing\\My Documents\\Projects\\BasketballApp\\BasketballApp\\dbBasketball.accdb;"; // sets the connection string for the access database
             connection.Open(); // opens the connection to the database
             connection.Close(); // closes the connection to the database
         }
@@ -117,7 +117,7 @@ namespace BasketballApp
 
                  
                 if (connection.State == ConnectionState.Open) connection.Close(); // closes the connection if it is already open
-                connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=dbBasketball.accdb;"; // sets the connection string for the access database
+                connection.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\\\filesrvr01\\home\\balrsing\\My Documents\\Projects\\BasketballApp\\BasketballApp\\dbBasketball.accdb;"; // sets the connection string for the access database
                 OleDbCommand command = new OleDbCommand(); // creates a new command object to execute SQL commands
                 connection.Open(); // opens the connection to the database
                 command.Connection = connection; // sets the connection for the command object

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
+using System.Data;  
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,7 +14,7 @@ namespace BasketballApp
     public partial class Home : Form
     {
         // db connection string for access database
-        string connectionString  = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=dbBasketball.accdb;"; // connection string for access database
+        string ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\\\filesrvr01\\home\\balrsing\\My Documents\\Projects\\BasketballApp\\BasketballApp\\dbBasketball.accdb;"; // connection string for access database
 
         public Home()
         {

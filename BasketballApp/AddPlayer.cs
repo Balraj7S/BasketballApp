@@ -10,7 +10,7 @@ namespace BasketballApp
         public AddPlayer() // loads team names from tblTeams into the ComboBox dropdown for team selection
         {
             InitializeComponent(); // loads the form and initializes the components
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=dbBasketball.accdb;"; // connection string for access database
+            connection.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\\\filesrvr01\\home\\balrsing\\My Documents\\Projects\\BasketballApp\\BasketballApp\\dbBasketball.accdb;"; // connection string for access database
             connection.Open();
             OleDbCommand command = new OleDbCommand("Select TeamId,TeamName From tblTeams", connection); // selects team names from tblTeams to populate the ComboBox
             OleDbDataReader reader = command.ExecuteReader(); // executes the command and reads the data from the database
@@ -54,7 +54,7 @@ namespace BasketballApp
             try
             {
                 if (connection.State == ConnectionState.Open) connection.Close(); // closes the connection if it is already open
-                connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=dbBasketball.accdb;"; // sets the connection string for the access database
+                connection.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\\\filesrvr01\\home\\balrsing\\My Documents\\Projects\\BasketballApp\\BasketballApp\\dbBasketball.accdb;"; // sets the connection string for the access database
                 connection.Open();
 
                 OleDbCommand command = new OleDbCommand(); // creates a new command object to execute SQL commands
@@ -94,7 +94,7 @@ namespace BasketballApp
             try
             {
                 if (connection.State == ConnectionState.Open) connection.Close(); // closes the connection if it is already open
-                connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=dbBasketball.accdb;"; // sets the connection string for the access database
+                connection.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\\\filesrvr01\\home\\balrsing\\My Documents\\Projects\\BasketballApp\\BasketballApp\\dbBasketball.accdb;"; // sets the connection string for the access database
                 OleDbCommand command = new OleDbCommand();  // creates a new command object to execute SQL commands
                 connection.Open(); // opens the connection to the database
                 command.Connection = connection; // sets the connection for the command object to the opened connection

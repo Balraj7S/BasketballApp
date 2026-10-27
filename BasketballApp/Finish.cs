@@ -26,7 +26,7 @@ namespace BasketballApp
             try
             {
                 if (connection.State == ConnectionState.Open) connection.Close(); // closes the connection if it is already open
-                connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=dbBasketball.accdb;"; // sets the connection string for the access database
+                connection.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\\\filesrvr01\\home\\balrsing\\My Documents\\Projects\\BasketballApp\\BasketballApp\\dbBasketball.accdb;"; // sets the connection string for the access database
                 connection.Open(); // opens the connection to the database
                 string query = "SELECT tblPlayer.PlayerId" + // selects player data from tblPlayer along with team names, match dates, and events using INNER JOINs
                     ", tblPlayer.[Name], tblPlayer.Surname, tblTeams.TeamName, tblMatches.MatchDate, tblMatchEvent.[Event] " + // selects the PlayerId, Name, Surname, TeamName, MatchDate, and Event columns from the joined tables
@@ -61,6 +61,14 @@ namespace BasketballApp
             this.Hide();// hides the current Finish form to prevent the user from interacting with it while adding a new player
         }
 
-      
+        private void btnQuit_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnQuit_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit(); // exits the app completely
+        }
     }
 }

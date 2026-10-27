@@ -29,7 +29,7 @@ namespace BasketballApp
             storedSurname = surname; // stores the surname passed from AddPlayer form
             storedPosition = position; // stores the position passed from AddPlayer form
             storedTeamIndex = selectedTeamId - 1; // stores the team index for the ComboBox selection (assuming TeamId starts from 1)
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=dbBasketball.accdb;"; // sets the connection string for the access database
+            connection.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\\\filesrvr01\\home\\balrsing\\My Documents\\Projects\\BasketballApp\\BasketballApp\\dbBasketball.accdb;"; // sets the connection string for the access database
             connection.Open(); // opens the connection to the database
             OleDbCommand command = new OleDbCommand("SELECT TeamId,TeamName FROM tblTeams", connection); // selects team names from tblTeams to populate the ComboBoxes
             OleDbDataReader reader = command.ExecuteReader(); // executes the command and reads the data from the database
@@ -72,10 +72,10 @@ namespace BasketballApp
             try
             {
                 if (connection.State == ConnectionState.Open) connection.Close(); // closes the connection if it is already open
-                connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=dbBasketball.accdb;"; // sets the connection string for the access database
+                connection.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\\\filesrvr01\\home\\balrsing\\My Documents\\Projects\\BasketballApp\\BasketballApp\\dbBasketball.accdb;"; // sets the connection string for the access database
                 OleDbCommand command = new OleDbCommand(); // creates a new command object to execute SQL commands
                 connection.Open();// opens the connection to the database
-                command.Connection = connection; // sets the connection for the command object
+                command.Connection = connection; // sets the connection for the command object    
                 int homeTeamId = cmbHomeTeam.SelectedIndex + 1;// gets the home teamId based on the selected index of the ComboBox (assuming TeamId starts from 1)
                 int awayTeamId = cmbAwayTeam.SelectedIndex + 1; // gets the away teamId based on the selected index of the ComboBox (assuming TeamId starts from 1)
                 command.CommandText = "INSERT INTO tblMatches (MatchDate, HomeTeamId, AwayTeamId) VALUES (#" + dtpMatchDate.Value.ToString("yyyy-MM-dd") + "#," + homeTeamId + "," + awayTeamId + ")"; // inserts a new match record into tblMatches with the selected date, home teamId, and away teamId

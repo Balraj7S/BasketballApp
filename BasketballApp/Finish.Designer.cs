@@ -36,6 +36,7 @@
             dGVSummary = new DataGridView();
             btnHome = new Button();
             btnAddnewPlayer = new Button();
+            btnQuit = new Button();
             ((System.ComponentModel.ISupportInitialize)dGVSummary).BeginInit();
             SuspendLayout();
             // 
@@ -114,11 +115,22 @@
             btnAddnewPlayer.UseVisualStyleBackColor = true;
             btnAddnewPlayer.Click += btnAddnewPlayer_Click;
             // 
+            // btnQuit
+            // 
+            btnQuit.Location = new Point(346, 385);
+            btnQuit.Name = "btnQuit";
+            btnQuit.Size = new Size(135, 61);
+            btnQuit.TabIndex = 8;
+            btnQuit.Text = "Quit";
+            btnQuit.UseVisualStyleBackColor = true;
+            btnQuit.Click += btnQuit_Click_1;
+            // 
             // Finish
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(840, 450);
+            Controls.Add(btnQuit);
             Controls.Add(btnAddnewPlayer);
             Controls.Add(btnHome);
             Controls.Add(dGVSummary);
@@ -140,5 +152,6 @@
         private DataGridView dGVSummary;
         private Button btnHome;
         private Button btnAddnewPlayer;
+        private Button btnQuit;
     }
 }
